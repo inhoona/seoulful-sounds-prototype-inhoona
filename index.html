@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoulful Sounds</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">Seoulful Sounds</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+<header>
+    <h1>Seoulful Sounds</h1>
+    <p class="tagline">Find a Korean song that matches your mood.</p>
+</header>
+
+<section class="mood-container">
+
+    <button class="mood-btn happy" data-mood="happy">
+        <img src="icons/happy.svg" alt="Happy icon">
+        <span>Happy</span>
+    </button>
+
+    <button class="mood-btn sad" data-mood="sad">
+        <img src="icons/sad.svg" alt="Sad icon">
+        <span>Sad</span>
+    </button>
+
+    <button class="mood-btn excited" data-mood="excited">
+        <img src="icons/excited.svg" alt="Excited icon">
+        <span>Excited</span>
+    </button>
+
+    <button class="mood-btn sleepy" data-mood="sleepy">
+        <img src="icons/sleepy.svg" alt="Sleepy icon">
+        <span>Sleepy</span>
+    </button>
+
+    <button class="mood-btn studious" data-mood="studious">
+        <img src="icons/studious.svg" alt="Studious icon">
+        <span>Studious</span>
+    </button>
+
+    <button class="mood-btn surprised" data-mood="surprised">
+        <img src="icons/surprise.svg" alt="Surprised icon">
+        <span>Surprised</span>
+    </button>
+
+    <button class="mood-btn motivated" data-mood="motivated">
+        <img src="icons/motivated.svg" alt="Motivated icon">
+        <span>Motivated</span>
+    </button>
+
+    <button class="mood-btn romantic" data-mood="romantic">
+        <img src="icons/romantic.svg" alt="Romantic icon">
+        <span>Romantic</span>
+    </button>
+
+</section>
+
+<section id="result" class="hidden">
+    <div class="recommendation-card">
+        <h2 id="song-title"></h2>
+        <p id="artist"></p>
+        <img id="album-art" src="" alt="Album Art">
+        <p id="description"></p>
+        <a id="youtube-link" href="#" target="_blank" class="play-btn">Play on YouTube</a>
+    </div>
+</section>
+
+<footer>
+    <p>Made with ❤️ using traditional Korean colors (오방색)</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
