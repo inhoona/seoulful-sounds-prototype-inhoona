@@ -37,9 +37,9 @@ body {
     /* GRADIENT BACKGROUND */
     background: linear-gradient(
         135deg,
-        rgba(227, 191, 0, 0.4),
-        rgba(10, 76, 154, 0.35),
-        rgba(192, 57, 43, 0.35)
+        rgba(227, 191, 0, 0.5), /* Yellow */
+        rgba(10, 76, 154, 0.45), /* Blue */
+        rgba(192, 57, 43, 0.45) /* Red */
     );
     background-size: 200% 200%;
     animation: gradientShift 20s ease infinite;
@@ -67,6 +67,7 @@ body {
     position: sticky;
     top: 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* NEW CLASS: Centering Container */
@@ -168,6 +169,8 @@ body::before {
     z-index: -2;
 }
 
+
+
 /* FLOATING PARTICLES */
 body::after {
     content: "";
@@ -197,10 +200,25 @@ header {
 }
 
 h1 {
-    font-size: 2.7rem;
-    letter-spacing: 1px;
+    font-size: 3.5rem; /* Make the h1 even more prominent */
+    letter-spacing: 2px;
     color: var(--blue);
     margin-bottom: 10px;
+    /* 3D/Embossed Text Effect */
+    text-shadow: 
+        2px 2px 0 var(--red), /* Offset shadow in red */
+        4px 4px 0 var(--yellow), /* Second layer in yellow */
+        6px 6px 10px rgba(0, 0, 0, 0.3); /* Final drop shadow */
+    transition: all 0.3s ease;
+}
+
+/* Add a subtle hover effect to the title */
+h1:hover {
+    transform: translateY(-2px);
+    text-shadow: 
+        1px 1px 0 var(--red),
+        3px 3px 0 var(--yellow),
+        5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .tagline {
