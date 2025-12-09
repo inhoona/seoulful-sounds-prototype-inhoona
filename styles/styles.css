@@ -29,9 +29,10 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; 
     color: var(--text);
     text-align: center;
+
 
     /* GRADIENT BACKGROUND */
     background: linear-gradient(
@@ -57,16 +58,29 @@ body {
 /* NAVIGATION BAR */
 .navbar {
     width: 100%;
-    padding: 15px 40px;
+    /* Removed padding to let .nav-content manage spacing */
+    padding: 0; 
+    display: block;
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Removed display: flex properties */
     position: sticky;
     top: 0;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
+
+/* NEW CLASS: Centering Container */
+.nav-content {
+    width: 95%; /* Adjust width to 95% */
+    max-width: 1200px; /* Max width for a desktop view */
+    margin: 0 auto; /* KEY: Centers the container */
+    padding: 15px 0; /* Add back vertical padding here */
+    display: flex; /* Apply flex properties here */
+    justify-content: space-between; /* Pushes logo and links apart */
+    align-items: center;
+}
+
+/* Keep .nav-logo and .nav-links as they are */
 
 .nav-logo {
     font-size: 1.4rem;
@@ -199,13 +213,15 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 20px; /* Reduced gap from 25px to 20px for closer targets */
     padding: 40px 20px;
 }
 
+
+
 .mood-btn {
-    width: 130px;
-    height: 130px;
+    width: 140px;
+    height: 140px;
     background: var(--white);
     border: 3px solid var(--blue);
     border-radius: 18px;
@@ -231,9 +247,65 @@ h1 {
 }
 
 .mood-btn:hover {
-    background-color: var(--light-blue);
+    /* Change background to the primary blue */
+    background-color: var(--blue); 
     transform: translateY(-6px);
+    /* Change border to the primary red */
     border-color: var(--red);
+    /* Add a subtle shadow for depth */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the text/icon change color on hover for high contrast */
+.mood-btn:hover span,
+.mood-btn:hover img {
+    filter: brightness(0) invert(1); /* Makes the icon white */
+    color: var(--white); /* Makes the text white */
+}
+
+/* Ensure the span text remains readable on blue background */
+.mood-btn span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--blue);
+    transition: color 0.25s ease; /* Add transition for smoothness */
+}
+
+
+/* PLAY BUTTONS (COMBINED STYLES) */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between the buttons */
+    margin-top: 20px;
+}
+
+/* Apply the general button style to both elements */
+.play-btn {
+    display: inline-block;
+    background-color: var(--red);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+    cursor: pointer; /* Ensure the button has a pointer cursor */
+    border: none; /* Make sure the <button> element has no default border */
+    font-size: 1rem; /* Ensure font size consistency */
+}
+
+#next-song-btn {
+    background-color: var(--blue); /* Use the blue color for the interactive button */
+}
+
+.play-btn:hover {
+    background-color: var(--blue); /* Hover state */
+}
+
+#next-song-btn:hover {
+    background-color: var(--red); /* Swap hover colors for distinction */
 }
 
 /* RESULT CARD */
@@ -252,8 +324,12 @@ h1 {
     margin: 0 auto;
     padding: 25px;
     border-radius: 18px;
-    background-color: var(--light-yellow);
-    border: 3px solid var(--red);
+    /* Change background to pure white for minimal contrast */
+    background-color: var(--white); 
+    /* Use the main Blue for a clean border */
+    border: 3px solid var(--blue); 
+    /* Add a stronger shadow to lift the card off the gradient background */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
 }
 
 .recommendation-card h2 {
@@ -265,8 +341,10 @@ h1 {
     color: var(--black);
 }
 
-#album-art {
-    width: 85%;
+#youtube-embed {
+    width: 95%; /* Adjust width to fit well within the card */
+    display: block;
+    aspect-ratio: 16 / 9; /* Ensures the video maintains the correct shape */
     margin: 15px auto;
     border-radius: 14px;
     border: 2px solid var(--blue);
@@ -300,11 +378,12 @@ footer {
 /* RESPONSIVE DESIGN */
 
 /* Tablets */
+/* Responsive adjustment for tablets (Fitts's Law on smaller screens) */
 @media (max-width: 900px) {
     h1 { font-size: 2.2rem; }
     .mood-container { gap: 20px; padding: 20px; }
-    .mood-btn { width: 120px; height: 120px; }
-    .mood-btn img { width: 50px; }
+    .mood-btn { width: 140px; height: 140px; } 
+    .mood-btn img { width: 55px; }
 }
 
 /* Large phones */
